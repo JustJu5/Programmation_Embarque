@@ -1,0 +1,15 @@
+CC = gcc
+CFLAGS = -Wall -Wextra
+LIBS = -lwiringPi
+TARGET = projet_final
+
+all: $(TARGET)
+
+$(TARGET): projet_final.o
+	$(CC) $(CFLAGS) -o $(TARGET) projet_final.o $(LIBS)
+
+projet_final.o: projet_final.c
+	$(CC) $(CFLAGS) -c projet_final.c
+
+clean:
+	rm -f *.o $(TARGET)
